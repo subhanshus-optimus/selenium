@@ -1,0 +1,14 @@
+{
+"key1":"value1",
+"key2":"value2",
+"key3":["test","test2"],
+"operators":["Airtel","Aircel","Vodafone","BSNL","Tata Docomo GSM","Idea","indicom Walky","MTNL Delhi","Reliance CDMA","Reliance GSM","Tata Indicom","Telenor","MTS","Videocon","Virgin CDMA","Virgin GSM","Tata Docomo CDMA"],
+"freeChargePageTitle":"Online Recharge on FreeCharge | Fast & Easy Recharge for Prepaid Mobile, Postpaid Mobile, Datacard & DTH.",
+"invalidNumberMsg":"Value should be 10 digits",
+"defaultOperator":"Idea",
+"numberOfOperator":"16",
+"allRecomendedPlans":"25"
+
+
+
+}
