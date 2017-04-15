@@ -18,5 +18,6 @@ public class Locators {
 	public By viewAllPlan = By.xpath("//button[text()='View all plans']");
 	public By recommendedTab = By.xpath("//span[text()='RECOMMENDED']");
 	public By allRecomendedPlans = By.xpath("//ul[@data-reactid='.0.2.1.0.2.0.2.0']/li");
+	public By circleDropdown = By.name("circle");
 
 }

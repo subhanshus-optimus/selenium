@@ -144,6 +144,11 @@ public class UtilityMethods {
 		WebDriverWait wait = new WebDriverWait(driver, Integer.parseInt(readValueFromProperty("explicitWait")));
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
+	public void waitUntilInvisible(WebDriver driver, By locator)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Integer.parseInt(readValueFromProperty("explicitWait")));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	}
 	
 	public void sendKeys(WebDriver driver, By locator, String text)
 	{
@@ -167,6 +172,25 @@ public class UtilityMethods {
 		driver.findElement(locator).click();
 	}
 	
+	public void retryClick(WebDriver driver, By locator)
+	{
+		long currentTime = System.currentTimeMillis();
+		long futureTime = currentTime + (Integer.parseInt(readValueFromProperty("explicitWait"))*1000);
+		
+		while (futureTime > currentTime)
+		{
+			try
+			{
+				driver.findElement(locator).click();
+				System.out.println("-----It is clicked------");
+				break;
+			}
+			catch (Exception e)
+			{
+				
+			}
+		}
+	}
 	
 
 }

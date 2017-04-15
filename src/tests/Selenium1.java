@@ -129,9 +129,24 @@ public class Selenium1 {
 		util.sendKeys(driver, locator.numberField, "9812345678");
 		util.waitUntilClickable(driver, locator.proceed_button);
 		util.waitUntilClickable(driver, locator.operator_dropDown);
-		util.selectValueFromDropDown(driver, locator.operator_dropDown, "Idea");
+		util.selectValueFromDropDown(driver, locator.operator_dropDown, "Idea");		
+		util.waitUntilClickable(driver, locator.circleDropdown);
 		util.waitUntilClickable(driver, locator.proceed_button);
-		util.clickElement(driver, locator.proceed_button);
+		//util.clickElement(driver, locator.proceed_button);
+		Boolean b = true;
+		while (b)
+		{
+			System.out.println("Inside while loop");
+			if(driver.findElement(locator.proceed_button).isDisplayed())
+			{
+				util.clickElement(driver, locator.proceed_button);
+			}
+			else
+			{
+				b = false;
+			}
+		}
+		
 	}
 	@Test(enabled = false)
 	public void eightTest()
@@ -146,13 +161,15 @@ public class Selenium1 {
 	{
 		seventhTest();
 		util.waitUntilClickable(driver, locator.viewAllPlan);
-		util.clickElement(driver, locator.viewAllPlan);
+		util.retryClick(driver, locator.viewAllPlan);
 		util.waitUntilVisible(driver, locator.recommendedTab);
 		List<WebElement> allRecomendedPlans = driver.findElements(locator.allRecomendedPlans);
-		Assert.assertEquals(allRecomendedPlans.size(), Integer.parseInt(util.getValueFromJsonFile("allRecomendedPlans")));
+		
+		Assert.assertEquals(((allRecomendedPlans.size()) > (Integer.parseInt(util.getValueFromJsonFile("allRecomendedPlans")))), true);
+		
 	}
 	
-	//@AfterTest
+	@AfterTest
 	public void killBrowser()
 	{
 		driver.close();
