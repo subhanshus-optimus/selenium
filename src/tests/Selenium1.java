@@ -36,15 +36,28 @@ public class Selenium1 {
 		util.navigateBrowser(driver, "freeCharge");
 	}
 	
+	@AfterTest
+	public void killBrowser()
+	{
+		driver.close();
 	
-	@Test(enabled = false)
+		try {
+			Runtime.getRuntime().exec("TASKKILL.exe /F /IM chromedriver.exe");
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
+	
+	
+	@Test
 	public void firstTest()
 	{
 		util.waitUntilVisible(driver, locator.loginButton);
 		Assert.assertEquals(driver.getTitle(), util.getValueFromJsonFile("freeChargePageTitle"));
 	}
 	
-	@Test(enabled = false)	
+	@Test	
 	public void secondTest()
 	{
 		util.waitUntilVisible(driver, locator.loginButton);
@@ -78,7 +91,7 @@ public class Selenium1 {
 		
 	}
 	
-	@Test(enabled = false)
+	@Test
 	public void thirdTest()
 	{
 		util.waitUntilClickable(driver, locator.numberField);
@@ -92,7 +105,7 @@ public class Selenium1 {
 		util.sendKeys(driver, locator.numberField, "9812345678");
 	}
 	
-	@Test(enabled = false)
+	@Test
 	public void fourthTest()
 	{
 		util.waitUntilVisible(driver, locator.loginButton);
@@ -101,7 +114,7 @@ public class Selenium1 {
 		Assert.assertEquals(driver.findElement(locator.prepaidRadioBtn).isSelected(), true);
 	}
 	
-	@Test(enabled = false)
+	@Test
 	public void fifthTest()
 	{
 		util.waitUntilVisible(driver, locator.loginButton);
@@ -111,7 +124,7 @@ public class Selenium1 {
 		Assert.assertEquals(defaultOperator, util.getValueFromJsonFile("defaultOperator"));
 		
 	}
-	@Test(enabled = false)
+	@Test
 	public void sixthTest()
 	{
 		util.waitUntilVisible(driver, locator.loginButton);
@@ -122,7 +135,7 @@ public class Selenium1 {
 		int number_of_operators = (allOperators.size()) -1;
 		Assert.assertEquals(number_of_operators, Integer.parseInt(util.getValueFromJsonFile("numberOfOperator")));
 	}
-	@Test(enabled = false)
+	@Test
 	public void seventhTest()
 	{
 		util.waitUntilVisible(driver, locator.loginButton);
@@ -148,7 +161,7 @@ public class Selenium1 {
 		}
 		
 	}
-	@Test(enabled = false)
+	@Test
 	public void eightTest()
 	{
 		seventhTest();
@@ -156,7 +169,7 @@ public class Selenium1 {
 		Assert.assertEquals(driver.findElement(locator.amountField).getText(), "");
 	}
 	
-	@Test(enabled = true)
+	@Test
 	public void ninthTest()
 	{
 		seventhTest();
@@ -169,18 +182,34 @@ public class Selenium1 {
 		
 	}
 	
-	@AfterTest
-	public void killBrowser()
+	@Test
+	public void tenthTest()
 	{
-		driver.close();
-	
-		try {
-			Runtime.getRuntime().exec("TASKKILL.exe /F /IM chromedriver.exe");
-		} catch (IOException e) {
-			
-			e.printStackTrace();
+		seventhTest();
+		util.waitUntilClickable(driver, locator.viewAllPlan);
+		util.retryClick(driver, locator.viewAllPlan);
+		util.waitUntilVisible(driver, locator.fullTalkTimeTab);
+		//util.clickElement(driver, locator.fullTalkTimeTab);
+		List<WebElement> fullTalkTimePlans = driver.findElements(locator.allFullTalkTimePlans);
+		
+		
+		int smallest = Integer.parseInt(fullTalkTimePlans.get(0).getText().replaceAll("[^0-9]", ""));
+		int element =0;
+		
+		for (int i=0; i<fullTalkTimePlans.size();i++)
+		{
+			if (Integer.parseInt(fullTalkTimePlans.get(i).getText().replaceAll("[^0-9]", ""))<smallest)
+			{
+				smallest = Integer.parseInt(fullTalkTimePlans.get(i).getText().replaceAll("[^0-9]", ""));
+				element = i;
+			}
 		}
+		System.out.println(smallest);
+		System.out.println(fullTalkTimePlans.get(element).getText());
+		fullTalkTimePlans.get(element).click();
 	}
+	
+	
 
 }
 

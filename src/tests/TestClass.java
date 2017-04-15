@@ -20,6 +20,9 @@ public class TestClass {
 		Boolean b= true;
 		System.out.println(b.booleanValue());
 		System.out.println(utils.getValueFromJsonFile("numberOfOperator"));
+		String test = "$#123$";
+		int value= Integer.parseInt(test.replaceAll("[^0-9]", ""));
+		System.out.println(value);
 	}
 
 }
