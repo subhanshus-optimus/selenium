@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="My Suite" verbose="1" >
+  <test name="My First Test" >
+    <classes>
+      <class name="tests.Selenium1"/>
+    </classes>
+ </test>
+</suite>

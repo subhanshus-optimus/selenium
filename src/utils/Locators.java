@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 public class Locators {
 	
+	//selenium1	
 	public By loginButton = By.xpath("//a[text()= 'Login/Register']");
 	public By airtelLink = By.partialLinkText("airtel-prepaid");
 	public By mobileRechargeLink = By.xpath("//a[text()='mobile recharge']/parent::li/following-sibling::li");
@@ -21,4 +22,8 @@ public class Locators {
 	public By circleDropdown = By.name("circle");
 	public By fullTalkTimeTab = By.xpath("//span[text() ='FULL TT']");
 	public By allFullTalkTimePlans = By.xpath("//ul[@data-reactid ='.0.2.1.0.2.0.2.0']/li/p");
+	
+	
+	//selenium2
+	public By dragElement = By.id("draggable");
 }
