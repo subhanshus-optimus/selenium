@@ -28,4 +28,5 @@ public class Locators {
 	public By dragElement = By.id("draggable");
 	public By newBrowserWindow = By.id("button1");
 	public By timingAlert = By.id("timingAlert");
+	public By messageBox = By.id("avia_message_1");
 }
