@@ -149,6 +149,11 @@ public class UtilityMethods {
 		WebDriverWait wait = new WebDriverWait(driver, Integer.parseInt(readValueFromProperty("explicitWait")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
 	}
+	public WebDriverWait explicitWait(WebDriver driver)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Integer.parseInt(readValueFromProperty("explicitWait")));
+		return wait;
+	}
 	
 	public void sendKeys(WebDriver driver, By locator, String text)
 	{

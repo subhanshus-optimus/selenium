@@ -26,4 +26,6 @@ public class Locators {
 	
 	//selenium2
 	public By dragElement = By.id("draggable");
+	public By newBrowserWindow = By.id("button1");
+	public By timingAlert = By.id("timingAlert");
 }
