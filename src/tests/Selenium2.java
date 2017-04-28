@@ -76,7 +76,7 @@ public class Selenium2
 		util.waitUntilClickable(driver, locator.timingAlert);
 		
 		util.clickElement(driver, locator.timingAlert);
-		Thread.sleep(3000);    //explicit wait for visibility of alert
+		Thread.sleep(5000);    //explicit wait for visibility of alert
 		util.explicitWait(driver).until(ExpectedConditions.alertIsPresent());
 		Alert alert =driver.switchTo().alert();
 		alert.accept();
