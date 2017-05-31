@@ -29,4 +29,15 @@ public class Locators {
 	public By newBrowserWindow = By.id("button1");
 	public By timingAlert = By.id("timingAlert");
 	public By messageBox = By.id("avia_message_1");
+	
+	//seleniumm 3
+	
+	public By numberFieldCss = By.cssSelector("input[name = 'number']");
+	public By operator = By.cssSelector("select[name = 'operator']");
+	public By proceedbtn = By.cssSelector("button.btn._2eaVn");
+	public By viewAllButton = By.cssSelector("button._3G6A5");
+	public By recommendedPlans = By.cssSelector("p._264pV");
+	public By fullTab = By.cssSelector("span[data-reactid = '.0.3.1.0.2.0.1.$1']");
+	public By topUp =  By.cssSelector("span[data-reactid = '.0.3.1.0.2.0.1.$2']");
+	
 }

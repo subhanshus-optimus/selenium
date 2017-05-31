@@ -76,6 +76,8 @@ public class UtilityMethods {
 			capabilities.setCapability(CapabilityType.BROWSER_NAME, "IE");
 			capabilities.setCapability(InternetExplorerDriver.
 					INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+			capabilities.setCapability(CapabilityType.VERSION, "10");
+			capabilities.setVersion("10");
 			File file1 = new File (ieDriverPath);			
 			
 			System.setProperty("webdriver.ie.driver", file1.getAbsolutePath());		
@@ -182,7 +184,7 @@ public class UtilityMethods {
 		long currentTime = System.currentTimeMillis();
 		long futureTime = currentTime + (Integer.parseInt(readValueFromProperty("explicitWait"))*1000);
 		
-		while (futureTime > currentTime)
+		while (futureTime > System.currentTimeMillis())
 		{
 			try
 			{
@@ -195,6 +197,38 @@ public class UtilityMethods {
 				
 			}
 		}
+	}
+	public void frequenctClick(WebDriver driver, By locator)
+	{
+		long currentTime = System.currentTimeMillis();
+		long futureTime = currentTime + (Integer.parseInt(readValueFromProperty("explicitWait"))*1000);
+		
+		
+		while (futureTime > System.currentTimeMillis())
+		{
+			try
+			{
+				System.out.println("Inside while loop");
+				
+				
+				if(driver.findElement(locator).isDisplayed())
+				{
+					System.out.println("click again");
+					clickElement(driver, locator);
+					System.out.println("Clicked");
+				}
+				else
+				{
+					System.out.println("button is not displayed breadking loop");
+					break;
+				}
+			}
+			catch (Exception e)
+			{
+				
+			}
+		}
+		System.out.println("Exiting while loop");
 	}
 	
 
