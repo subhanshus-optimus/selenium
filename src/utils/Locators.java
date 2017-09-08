@@ -40,4 +40,12 @@ public class Locators {
 	public By fullTab = By.cssSelector("span[data-reactid = '.0.3.1.0.2.0.1.$1']");
 	public By topUp =  By.cssSelector("span[data-reactid = '.0.3.1.0.2.0.1.$2']");
 	
+	
+	//**********************Lasso*******************************************************
+	public By userName = By.id("Username");
+	public By password = By.id("Password");
+	public By signInButton = By.xpath("//span[text() = 'Sign In']");
+	public By logo = By.className("logo");
+	
+	
 }
