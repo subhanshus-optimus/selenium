@@ -64,5 +64,12 @@ public class LassoCommonMethods
 		
 	}
 	
+	public String randomString()
+	{
+		Date date = new Date();		
+		String[] dateArray = date.toString().split(" ");		
+		return "opt"+dateArray[1]+dateArray[2]; 
+	}
+	
 
 }

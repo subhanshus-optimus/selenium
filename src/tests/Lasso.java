@@ -37,6 +37,9 @@ public class Lasso {
 		util.clickElement(driver, locator.reportsBtn);
 		util.waitUntilClickable(driver, locator.reportScheduler);
 		util.clickElement(driver, locator.reportScheduler);
+		util.waitUntilClickable(driver, locator.jobnameField);
+		util.sendKeys(driver, locator.jobnameField, methods.randomString());
+		
 	}
 
 }
