@@ -2,8 +2,10 @@ package utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.util.*;
 
 public class LassoCommonMethods {
 	static WebDriver driver = null;
@@ -30,6 +32,7 @@ public class LassoCommonMethods {
 				
 			
 		}
+		System.out.println("Env got");
 		driver.get(URL);
 		util.waitUntilClickable(driver, locator.userName);
 		util.sendKeys(driver, locator.userName, username);
@@ -39,8 +42,25 @@ public class LassoCommonMethods {
 		util.waitUntilClickable(driver, locator.signInButton);
 		util.clickElement(driver, locator.signInButton);
 		util.waitUntilVisible(driver, locator.logo);
-		String clientName = "";
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text() = 'Umbrella Corporation']")));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text() = '"+projectName+"']")));
+		List<WebElement> clientLinks = driver.findElements(By.xpath("//a[text() = '"+projectName+"']"));
+		System.out.println("client found");
+		
+		switch (moduleName)
+		{
+			case "Sales Center":
+				clientLinks.get(0).click();
+				break;
+			case "Project Admin":
+				clientLinks.get(3).click();
+				break;
+			case "Client Admin":
+				clientLinks.get(2).click();
+				break;
+		}
+		util.waitUntilInvisible(driver, locator.logo);
+		
 	}
 	
 

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import utils.LassoCommonMethods;
 import utils.Locators;
 import utils.UtilityMethods;
 
@@ -16,8 +17,9 @@ public class Lasso {
 	static WebDriver driver = null;
 	static UtilityMethods util = new UtilityMethods();
 	Locators locator = new Locators();
+	LassoCommonMethods methods = new LassoCommonMethods();
 	
-	@Test
+	@Test(enabled = false)
 	public void login()
 	{
 		driver = util.launchBrowser(driver);
@@ -36,6 +38,11 @@ public class Lasso {
 		
 		
 		
+	}
+	@Test
+	public void methodcheck()
+	{
+		methods.accessToProject("scarlet", "sf2014las", "Beta", "Umbrella Corporation", "Sales Center");
 	}
 
 }
