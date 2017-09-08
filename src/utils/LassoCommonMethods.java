@@ -7,16 +7,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.*;
 
-public class LassoCommonMethods {
+public class LassoCommonMethods
+{
 	static WebDriver driver = null;
 	static UtilityMethods util = new UtilityMethods();
 	Locators locator = new Locators();
-	WebDriverWait wait = new WebDriverWait(driver,30);
+	
 	
 	public void accessToProject(String username, String password, String env,String projectName,String moduleName)
 	{
 		driver = util.launchBrowser(driver);
 		driver.manage().window().maximize();
+		WebDriverWait wait = new WebDriverWait(driver,30);
 		String URL=null;		
 		switch(env) 
 		{
@@ -32,7 +34,7 @@ public class LassoCommonMethods {
 				
 			
 		}
-		System.out.println("Env got");
+		
 		driver.get(URL);
 		util.waitUntilClickable(driver, locator.userName);
 		util.sendKeys(driver, locator.userName, username);
@@ -45,7 +47,7 @@ public class LassoCommonMethods {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text() = '"+projectName+"']")));
 		List<WebElement> clientLinks = driver.findElements(By.xpath("//a[text() = '"+projectName+"']"));
-		System.out.println("client found");
+		
 		
 		switch (moduleName)
 		{

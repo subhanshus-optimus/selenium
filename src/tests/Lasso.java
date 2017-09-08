@@ -19,30 +19,10 @@ public class Lasso {
 	Locators locator = new Locators();
 	LassoCommonMethods methods = new LassoCommonMethods();
 	
-	@Test(enabled = false)
-	public void login()
-	{
-		driver = util.launchBrowser(driver);
-		driver.manage().window().maximize();
-		WebDriverWait wait = new WebDriverWait(driver,20);		
-		driver.get("http://app.beta.lassocrm.com/login");
-		util.waitUntilClickable(driver, locator.userName);
-		util.sendKeys(driver, locator.userName, "Scarlet");
-		util.waitUntilClickable(driver, locator.password);
-		util.sendKeys(driver, locator.password, "sf2014las");
-		util.waitUntilClickable(driver, locator.signInButton);
-		util.clickElement(driver, locator.signInButton);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text() = 'Umbrella Corporation']")));
-		List<WebElement> UmbrellaCorporationLinks = driver.findElements(By.xpath("//a[text() = 'Umbrella Corporation']"));
-		UmbrellaCorporationLinks.get(0).click();
-		
-		
-		
-	}
 	@Test
 	public void methodcheck()
 	{
-		methods.accessToProject("scarlet", "sf2014las", "Beta", "Umbrella Corporation", "Sales Center");
+		methods.accessToProject("qa-atindall", "at2016lasso", "Staging", "QA Mailing", "Sales Center");
 	}
 
 }
