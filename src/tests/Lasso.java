@@ -37,8 +37,30 @@ public class Lasso {
 		util.clickElement(driver, locator.reportsBtn);
 		util.waitUntilClickable(driver, locator.reportScheduler);
 		util.clickElement(driver, locator.reportScheduler);
+		
+		util.waitUntilClickable(driver, locator.reportDrop_down);
+		util.clickElement(driver, locator.reportDrop_down);
+		
+		util.waitUntilClickable(driver, locator.weekly);
+		util.clickElement(driver, locator.weekly);
+		
 		util.waitUntilClickable(driver, locator.jobnameField);
 		util.sendKeys(driver, locator.jobnameField, methods.randomString());
+		
+		util.waitUntilClickable(driver, locator.reportSubj);
+		util.sendKeys(driver, locator.reportSubj, methods.randomString());
+		
+		util.waitUntilClickable(driver, locator.scheduleType);
+		util.clickElement(driver, locator.scheduleType);
+		
+		util.waitUntilClickable(driver, locator.scheduleWeekly);
+		util.clickElement(driver, locator.scheduleWeekly);
+		
+		util.waitUntilClickable(driver, locator.tuesdayCheckBox);
+		util.clickElement(driver, locator.tuesdayCheckBox);
+		
+		util.waitUntilClickable(driver, locator.wednesdayCheckBox);
+		util.clickElement(driver, locator.wednesdayCheckBox);
 		
 	}
 
