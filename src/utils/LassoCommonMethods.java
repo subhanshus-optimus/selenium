@@ -11,13 +11,12 @@ public class LassoCommonMethods
 {
 	static WebDriver driver = null;
 	static UtilityMethods util = new UtilityMethods();
-	Locators locator = new Locators();
+	LassoLocators locator = new LassoLocators();
 	
 	
-	public void accessToProject(String username, String password, String env,String projectName,String moduleName)
+	public void accessToProject(String username, String password, String env,String projectName,String moduleName, WebDriver driver)
 	{
-		driver = util.launchBrowser(driver);
-		driver.manage().window().maximize();
+		
 		WebDriverWait wait = new WebDriverWait(driver,30);
 		String URL=null;		
 		switch(env) 

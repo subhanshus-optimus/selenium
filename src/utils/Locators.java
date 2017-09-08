@@ -47,5 +47,10 @@ public class Locators {
 	public By signInButton = By.xpath("//span[text() = 'Sign In']");
 	public By logo = By.className("logo");
 	
+	//Client Admin
+	
+	public By reportsBtn = By.xpath("//span[text() = 'Reports']");
+	public By reportScheduler = By.xpath("//span[text() = 'Report Scheduler']"); 
+	
 	
 }
